@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 10px;
+            width: 300px;
+        }
+        button {
+            margin-right: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Admin Dashboard</h2>
+<div id="pendingBooks"></div>
+
+<script>
+const API_URL = "https://YOUR_API_ID.execute-api.REGION.amazonaws.com/prod/admin/pending-books";
+
+fetch(API_URL, {
+    headers: {
+        "Authorization": localStorage.getItem("token")
+    }
+})
+.then(res => res.json())
+.then(data => {
+    const container = document.getElementById("pendingBooks");
+
+    data.forEach(book => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+            <h3>${book.title}</h3>
+            <p>Price: ₹${book.price}</p>
+            <button onclick="approve('${book.bookId}')">Approve</button>
+        `;
+        container.appendChild(div);
+    });
+});
+
+function approve(bookId) {
+    fetch("https://YOUR_API_ID.execute-api.REGION.amazonaws.com/prod/admin/approve-book", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": localStorage.getItem("token")
+        },
+        body: JSON.stringify({ bookId })
+    }).then(() => alert("Book Approved"));
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sell Old Book</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<script>
+const token = localStorage.getItem("id_token");
+
+if (!token) {
+  alert("Please login first");
+  window.location.href = "index.html";
+}
+</script>
+
+</head>
+<body>
+
+<h2>Sell Old Book</h2>
+
+<form id="sellForm">
+  <input type="text" id="title" placeholder="Book Title" required />
+  <input type="text" id="author" placeholder="Author" required />
+  <input type="number" id="price" placeholder="Price" required />
+  <input type="text" id="seller" placeholder="Seller Name" required />
+  <input type="email" id="email" placeholder="Enter your email" required /> 
+  <input type="file" id="image" accept="image/*" required />
+  <button type="submit">Submit</button>
+</form>
+
+<!-- ✅ FIXED PATH -->
+<script src="js/sellbook.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Used Books Marketplace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/books.css">
+  
+  <script>
+    const domain = "https://ap-south-1zuhiuksn1.auth.ap-south-1.amazoncognito.com";
+    const clientId = "5usiauml5obj8839fbqbahe86u";
+    const redirectUri = "http://localhost:5500/books.html";
+
+  function goToSellBook() {
+  const token = localStorage.getItem("id_token");
+
+  if (!token) {
+    alert("🔐 Please login first to sell a book");
+    window.location.href =
+    `${domain}/login?response_type=token&client_id=${clientId}&redirect_uri=${redirectUri}&scope=openid+email+profile`;
+  } else {
+    window.location.href = "sell-book.html";
+  }
+}
+
+</script>
+
+</head>
+
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>📚 Used Books Marketplace</h1>
+
+    <nav>
+      <a href="#" onclick="goToSellBook()">Sell a Book</a>
+      <a href="admin.html">🛠 Admin Panel</a>
+      <a href="#" onclick="logout()">🚪 Logout</a>
+    </nav>
+  </header>
+
+  <!-- BOOK LIST (DYNAMIC) -->
+  <main class="container" id="bookList">
+    <p class="loading">Loading books...</p>
+  </main>
+
+  <!-- LOGOUT -->
+  <script>
+function logout() {
+
+  // 1️⃣ Clear tokens
+  localStorage.clear();
+  sessionStorage.clear();
+
+  // 2️⃣ Redirect to Cognito logout endpoint
+  window.location.href =
+    domain +
+    "/logout?client_id=" + clientId +
+    "&redirectUri=" + encodeURIComponent(redirectUri);
+}
+    
+  </script>
+
+  <!-- BOOKS JS -->
+  <script src="js/books.js"></script>
+
+</body>
+</html>
