@@ -105,15 +105,12 @@ if (!token) {
 }
 </script>
 
-
 </head>
 <body>
 
-<h2>Sell Old Book</h2>
-
 <div class="container">
     <h1>Sell Your Book</h1>
-    <p class="subtitle">List your book and connect with buyers instantly.</p>
+    <p class="subtitle">List your book and reach buyers instantly</p>
 
     <!-- KEEPING SAME FORM ID -->
     <form id="sellBookForm">
@@ -139,14 +136,19 @@ if (!token) {
         </div>
 
         <div class="form-group">
+            <label>Seller Email</label>
+            <input type="text" id="email" placeholder="Enter your mail" required>
+        </div>
+
+        <div class="form-group">
             <label>Book Image</label>
             <input type="file" id="image" accept="image/*" required>
         </div>
 
         <button type="submit">Publish Book</button>
-</form>
-</div>
 
+    </form>
+</div>
 <!-- ✅ FIXED PATH -->
 <script src="js/sellbook.js"></script>
 
