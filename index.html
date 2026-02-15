@@ -176,27 +176,25 @@ function goToSellBook() {
   }
 }
 
-async function parseToken() {
-  const params = new URLSearchParams(window.location.search);
-  const code = params.get("code");
 
-  if (code) {
-    const response = await fetch(`${domain}/oauth2/token`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      body: `grant_type=authorization_code&client_id=${clientId}&code=${code}&redirect_uri=${redirectUri}`
-    });
+function parseToken() {
+    const hash = window.location.hash;
 
-    const data = await response.json();
-    localStorage.setItem("idToken", data.id_token);
+    if (hash) {
+        const params = new URLSearchParams(hash.substring(1));
+        const idToken = params.get("id_token");
 
-    window.history.replaceState({}, document.title, redirectUri);
-  }
+        if (idToken) {
+            localStorage.setItem("id_token", idToken);
+
+            // Clean URL (remove token from address bar)
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
 }
 
 parseToken();
+
 
 
 </script>

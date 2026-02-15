@@ -28,6 +28,24 @@
   }
 }
 
+function parseToken() {
+    const hash = window.location.hash;
+
+    if (hash) {
+        const params = new URLSearchParams(hash.substring(1));
+        const idToken = params.get("id_token");
+
+        if (idToken) {
+            localStorage.setItem("id_token", idToken);
+
+            // Clean URL (remove token from address bar)
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
+}
+
+parseToken();
+
 </script>
 
 </head>
