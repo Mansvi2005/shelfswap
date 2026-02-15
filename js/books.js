@@ -50,7 +50,7 @@ async function loadBooks() {
         <p class="price">₹${price}</p>
         <p class="seller">Seller: ${seller}</p>
         <p class="email">Email: ${email}</p>
-        <img src="${imageUrl}" alt="Book image" />
+        <img src="${imageUrl}" class="book-image" alt="Book image" />
       
       `;
 
