@@ -29,7 +29,7 @@ liked.forEach(book => {
             <h3>${book.title}</h3>
             <p><strong>Author:</strong> ${book.author}</p>
             <p><strong>₹${book.price}</strong></p>
-            <img src="${book.image}" width="200">
+            <img src="${book.imageUrl}" width="200">
         </div>
     `;
 });
