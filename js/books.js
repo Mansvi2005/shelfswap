@@ -22,18 +22,16 @@ const API_URL =
 
     const liked = JSON.parse(localStorage.getItem("likedBooks")) || [];
 
-    const cleanBook = {
+    liked.push({
         title: bookData.title,
         author: bookData.author,
         price: bookData.price,
         image: bookData.image
-    };
-
-    liked.push(cleanBook);
+    });
 
     localStorage.setItem("likedBooks", JSON.stringify(liked));
 
-    alert("Book added to liked ❤️");
+    alert("Added to Liked ❤️");
 }
 
 async function loadBooks() {

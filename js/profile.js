@@ -19,14 +19,12 @@ document.getElementById("email").innerText = user.email || "";
 
 // Load liked books
 const liked = JSON.parse(localStorage.getItem("likedBooks")) || [];
+const container = document.getElementById("likedBooks");
 
-const likedContainer = document.getElementById("likedBooks");
+container.innerHTML = "";
 
-likedContainer.innerHTML = "";
-
-// Display liked books
 liked.forEach(book => {
-    likedContainer.innerHTML += `
+    container.innerHTML += `
         <div class="book-card">
             <h3>${book.title}</h3>
             <p><strong>Author:</strong> ${book.author}</p>
