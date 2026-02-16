@@ -18,18 +18,18 @@ document.addEventListener("DOMContentLoaded", loadBooks);
 const API_URL =
   "https://zj91wchzu2.execute-api.ap-south-1.amazonaws.com/prod/books";
 
-  function likeBook(title, author, price, image) {
+ function likeBook(bookData) {
 
     const liked = JSON.parse(localStorage.getItem("likedBooks")) || [];
 
-    const book = {
-        title: title,
-        author: author,
-        price: price,
-        image: image
+    const cleanBook = {
+        title: bookData.title,
+        author: bookData.author,
+        price: bookData.price,
+        image: bookData.image
     };
 
-    liked.push(book);
+    liked.push(cleanBook);
 
     localStorage.setItem("likedBooks", JSON.stringify(liked));
 
@@ -69,12 +69,9 @@ async function loadBooks() {
         <p class="seller">Seller: ${seller}</p>
         <p class="email">Email: ${email}</p>
         <img src="${imageUrl}" class="book-image" alt="Book image" />
-        <button onclick="likeBook(
-    '${book.title}',
-    '${book.author}',
-    '${book.price}',
-    '${book.image}'
-)">❤️</button>
+        <button onclick='likeBook(${JSON.stringify(book)})'>
+    ❤️
+</button>
       
       `;
 
