@@ -18,16 +18,11 @@ document.addEventListener("DOMContentLoaded", loadBooks);
 const API_URL =
   "https://zj91wchzu2.execute-api.ap-south-1.amazonaws.com/prod/books";
 
- function likeBook(bookData) {
+ function likeBook(book) {
 
     const liked = JSON.parse(localStorage.getItem("likedBooks")) || [];
 
-    liked.push({
-        title: bookData.title,
-        author: bookData.author,
-        price: bookData.price,
-        image: bookData.image
-    });
+    liked.push(book);   // ✅ PUSH FULL OBJECT DIRECTLY
 
     localStorage.setItem("likedBooks", JSON.stringify(liked));
 
