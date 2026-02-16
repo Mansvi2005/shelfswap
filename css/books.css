@@ -86,7 +86,7 @@ body {
   width: 200%;
   max-width: 200px;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   margin-top: 10px;
 }
