@@ -17,6 +17,16 @@ const user = parseJwt(token);
 document.getElementById("name").innerText = user.name || "User";
 document.getElementById("email").innerText = user.email || "";
 
+const book = {
+    title: title,
+    author: author,
+    price: price,
+    image: imageUrl
+};
+
+likedBooks.push(book);
+localStorage.setItem("likedBooks", JSON.stringify(likedBooks));
+
 // Load liked books
 const liked = JSON.parse(localStorage.getItem("likedBooks")) || [];
 
