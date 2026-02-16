@@ -26,10 +26,10 @@ container.innerHTML = "";
 liked.forEach(book => {
     container.innerHTML += `
         <div class="book-card">
-            <h3>${book.title}</h3>
-            <p><strong>Author:</strong> ${book.author}</p>
-            <p><strong>₹${book.price}</strong></p>
-            <img src="${book.imageUrl}" width="200">
+            <h3>${book.title?.S || book.title}</h3>
+            <p><strong>Author:</strong> ${book.author?.S || book.author}</p>
+            <p><strong>₹${book.price?.N || book.price}</strong></p>
+            <img src="${book.imageUrl?.S || book.imageUrl}" width="200">
         </div>
     `;
 });
