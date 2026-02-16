@@ -28,6 +28,7 @@ liked.forEach(book => {
         <div class="book-card">
             <h3>${book.title?.S || book.title}</h3>
             <p><strong>Author:</strong> ${book.author?.S || book.author}</p>
+            <p><strong>Contact to:</strong> ${book.email?.S || book.email}</p>
             <p><strong>₹${book.price?.N || book.price}</strong></p>
             <img src="${book.imageUrl?.S || book.imageUrl}" width="200">
         </div>
