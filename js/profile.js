@@ -14,7 +14,7 @@ function parseJwt(token) {
 
 const user = parseJwt(token);
 
-document.getElementById("name").innerText = user.name || "User";
+document.getElementById("name").innerText = user.name || "name";
 document.getElementById("email").innerText = user.email || "";
 
 const book = {
