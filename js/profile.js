@@ -14,17 +14,8 @@ function parseJwt(token) {
 
 const user = parseJwt(token);
 
+// Show user email
 document.getElementById("email").innerText = user.email || "";
-
-const book = {
-    title: title,
-    author: author,
-    price: price,
-    image: imageUrl
-};
-
-liked.push(book);
-localStorage.setItem("likedBooks", JSON.stringify(liked));
 
 // Load liked books
 const liked = JSON.parse(localStorage.getItem("likedBooks")) || [];
@@ -33,8 +24,9 @@ const likedContainer = document.getElementById("likedBooks");
 
 likedContainer.innerHTML = "";
 
+// Display liked books
 liked.forEach(book => {
-    container.innerHTML += `
+    likedContainer.innerHTML += `
         <div class="book-card">
             <h3>${book.title}</h3>
             <p><strong>Author:</strong> ${book.author}</p>
@@ -42,4 +34,4 @@ liked.forEach(book => {
             <img src="${book.image}" width="200">
         </div>
     `;
-    });
+});
