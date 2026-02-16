@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Profile - ShelfSwap</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .profile-container {
+  padding: 50px 8%;
+}
+
+.profile-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+#likedBooks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+  </style>
+</head>
+<body>
+
+<nav>
+  <h1>📚 ShelfSwap</h1>
+  <div>
+    <a href="books.html">Browse</a>
+    <a href="profile.html">Profile</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </div>
+</nav>
+
+<div class="profile-container">
+  <h2>My Profile</h2>
+
+  <div class="profile-card">
+    <p><strong>Name:</strong> <span id="name"></span></p>
+    <p><strong>Email:</strong> <span id="email"></span></p>
+  </div>
+
+  <h3>❤️ Liked Books</h3>
+  <div id="likedBooks"></div>
+</div>
+
+<script src="js/profile.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>
