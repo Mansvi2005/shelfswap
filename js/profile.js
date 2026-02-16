@@ -22,14 +22,15 @@ const liked = JSON.parse(localStorage.getItem("likedBooks")) || [];
 
 const likedContainer = document.getElementById("likedBooks");
 
+likedContainer.innerHTML = "";
+
 liked.forEach(book => {
-  const div = document.createElement("div");
-  div.classList.add("book-card");
-  div.innerHTML = `
-    <h3>${book.title}</h3>
-    <p>Author: ${book.author}</p>
-    <p>₹${book.price}</p>
-    <img src="${book.image}" />
-  `;
-  likedContainer.appendChild(div);
-});
+    container.innerHTML += `
+        <div class="book-card">
+            <h3>${book.title}</h3>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p><strong>₹${book.price}</strong></p>
+            <img src="${book.image}" width="200">
+        </div>
+    `;
+    });
