@@ -14,23 +14,24 @@ function parseJwt(token) {
 
 const user = parseJwt(token);
 
-document.getElementById("name").innerText = user.name || "name";
+document.getElementById("seller").innerText = user.seller || "";
 document.getElementById("email").innerText = user.email || "";
 
 const book = {
     title: title,
     author: author,
     price: price,
+    email: email,
     image: imageUrl
 };
 
-likedBooks.push(book);
-localStorage.setItem("likedBooks", JSON.stringify(likedBooks));
+liked.push(book);
+localStorage.setItem("liked", JSON.stringify(liked));
 
 // Load liked books
-const liked = JSON.parse(localStorage.getItem("likedBooks")) || [];
+const liked = JSON.parse(localStorage.getItem("liked")) || [];
 
-const likedContainer = document.getElementById("likedBooks");
+const likedContainer = document.getElementById("liked");
 
 likedContainer.innerHTML = "";
 
@@ -40,6 +41,7 @@ liked.forEach(book => {
             <h3>${book.title}</h3>
             <p><strong>Author:</strong> ${book.author}</p>
             <p><strong>₹${book.price}</strong></p>
+            <p><strong>Seller:</strong> ${book.email}</p>
             <img src="${book.image}" width="200">
         </div>
     `;
