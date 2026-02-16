@@ -47,8 +47,8 @@ body {
 .book-card {
   background: #ffffff;
   padding: 20px 24px;
-  margin-bottom: 18px;
-  border-radius: 10px;
+  margin-bottom: 25px;
+  border-radius: 14px;
   border: 1px solid #e5e7eb;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -83,9 +83,10 @@ body {
   color: #6b7280;
 }
 .book-image {
-  width: 100%;
-  max-height: 220px;
+  width: 200%;
+  max-width: 200px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 12px;
+  display: block;
+  margin-top: 10px;
 }
